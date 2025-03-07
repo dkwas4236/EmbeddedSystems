@@ -1,0 +1,260 @@
+******************************************************************************
+                  TI ARM Linker Unix v20.2.5                   
+******************************************************************************
+>> Linked Thu Jan 16 16:52:57 2025
+
+OUTPUT FILE NAME:   <lab1v2.out>
+ENTRY POINT SYMBOL: "ResetISR"  address: 00000ac1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00020000  00000b72  0001f48e  R  X
+  GPRAM                 11000000   00002000  00000000  00002000  RW X
+  SRAM                  20000000   00005000  00000100  00004f00  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000b12   00000b12    r-x
+  00000000    00000000    000000c8   000000c8    r-- .intvecs
+  000000c8    000000c8    00000a4a   00000a4a    r-x .text
+00000b14    00000b14    00000008   00000008    rw-
+  00000b14    00000b14    00000008   00000008    rw- .args
+0001ffa8    0001ffa8    00000058   00000058    r--
+  0001ffa8    0001ffa8    00000058   00000058    r-- .ccfg
+20004f00    20004f00    00000100   00000000    rw-
+  20004f00    20004f00    00000100   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000c8     
+                  00000000    000000c8     startup_ccs.obj (.intvecs)
+
+.text      0    000000c8    00000a4a     
+                  000000c8    00000130     driverlib.lib : setup_rom.obj (.text:NOROM_SetupAfterColdResetWakeupFromShutDownCfg3)
+                  000001f8    000000f0                   : setup_rom.obj (.text:NOROM_SetupAfterColdResetWakeupFromShutDownCfg2)
+                  000002e8    000000c8     main.obj (.text:main)
+                  000003b0    000000c0     driverlib.lib : setup.obj (.text:TrimAfterColdResetWakeupFromShutDown)
+                  00000470    000000a8                   : setup.obj (.text:NOROM_SetupTrimDevice)
+                  00000518    000000a4                   : setup_rom.obj (.text:NOROM_SetupAfterColdResetWakeupFromShutDownCfg1)
+                  000005bc    00000074                   : setup_rom.obj (.text:NOROM_SetupSetVddrLevel)
+                  00000630    00000070                   : chipinfo.obj (.text:NOROM_ChipInfo_GetHwRevision)
+                  000006a0    0000006c                   : setup_rom.obj (.text:NOROM_SetupGetTrimForAmpcompCtrl)
+                  0000070c    00000068                   : setup_rom.obj (.text:NOROM_SetupGetTrimForAnabypassValue1)
+                  00000774    00000060                   : osc.obj (.text:NOROM_OSCClockSourceSet)
+                  000007d4    00000050                   : setup_rom.obj (.text:NOROM_SetupSetCacheModeAccordingToCcfgSetting)
+                  00000824    00000048                   : chipinfo.obj (.text:NOROM_ChipInfo_GetChipFamily)
+                  0000086c    00000030                   : setup_rom.obj (.text:NOROM_SetupSetAonRtcSubSecInc)
+                  0000089c    0000002c                   : ddi.obj (.text:NOROM_DDI32RegWrite)
+                  000008c8    0000002c                   : osc.obj (.text:NOROM_OSCClockSourceGet)
+                  000008f4    0000002c                   : setup_rom.obj (.text:NOROM_SetupGetTrimForRadcExtCfg)
+                  00000920    00000020                   : setup_rom.obj (.text:NOROM_SetupGetTrimForXoscHfCtl)
+                  00000940    0000001c                   : setup_rom.obj (.text:NOROM_SetupGetTrimForAmpcompTh2)
+                  0000095c    0000001c                   : setup_rom.obj (.text:NOROM_SetupGetTrimForRcOscLfRtuneCtuneTrim)
+                  00000978    0000001c     main.obj (.text:PRCMLoadGet)
+                  00000994    0000001c     rtsv7M3_T_le_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit:_c_int00_noinit)
+                  000009b0    00000018     main.obj (.text:GPIO_clearDio)
+                  000009c8    00000018     main.obj (.text:GPIO_setDio)
+                  000009e0    00000018     driverlib.lib : setup_rom.obj (.text:NOROM_SetupGetTrimForAdcShModeEn)
+                  000009f8    00000018                   : setup_rom.obj (.text:NOROM_SetupGetTrimForAdcShVbufEn)
+                  00000a10    00000018                   : setup_rom.obj (.text:NOROM_SetupGetTrimForAmpcompTh1)
+                  00000a28    00000018                   : setup_rom.obj (.text:NOROM_SetupGetTrimForDblrLoopFilterResetVoltage)
+                  00000a40    00000018                   : setup_rom.obj (.text:NOROM_SetupGetTrimForRcOscLfIBiasTrim)
+                  00000a58    00000018                   : setup_rom.obj (.text:NOROM_SetupGetTrimForXoscLfRegulatorAndCmirrwrRatio)
+                  00000a70    00000018     rtsv7M3_T_le_eabi.lib : args_main.c.obj (.text:_args_main)
+                  00000a88    00000016     driverlib.lib : chipinfo.obj (.text:NOROM_ThisCodeIsBuiltForCC13xxHwRev20AndLater_HaltIfViolated)
+                  00000a9e    00000002     startup_ccs.obj (.text:FaultISR)
+                  00000aa0    00000010     driverlib.lib : setup_rom.obj (.text:NOROM_SetupGetTrimForXoscHfFastStart)
+                  00000ab0    00000010                   : setup_rom.obj (.text:NOROM_SetupGetTrimForXoscHfIbiastherm)
+                  00000ac0    00000010     startup_ccs.obj (.text:ResetISR)
+                  00000ad0    0000000c     driverlib.lib : cpu.obj (.text:NOROM_CPUcpsid)
+                  00000adc    0000000c                   : cpu.obj (.text:NOROM_CPUcpsie)
+                  00000ae8    0000000c     main.obj (.text:PRCMLoadSet)
+                  00000af4    0000000c     main.obj (.text:WatchdogResetDisable)
+                  00000b00    00000006     driverlib.lib : cpu.obj (.text:NOROM_CPUdelay)
+                  00000b06    00000004     rtsv7M3_T_le_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00000b0a    00000004                           : exit.c.obj (.text:abort:abort)
+                  00000b0e    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  00000b10    00000002     startup_ccs.obj (.text:NmiSR)
+
+.binit     0    00000000    00000000     
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.ccfg      0    0001ffa8    00000058     
+                  0001ffa8    00000058     ccfg.obj (.ccfg:retain)
+
+.stack     0    20004f00    00000100     UNINITIALIZED
+                  20004f00    00000004     rtsv7M3_T_le_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20004f04    000000fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+.args      0    00000b14    00000008     
+                  00000b14    00000008     --HOLE-- [fill = 0]
+
+MODULE SUMMARY
+
+       Module                code   ro data   rw data
+       ------                ----   -------   -------
+    ./
+       main.obj              300    0         0      
+       startup_ccs.obj       22     200       0      
+       ccfg.obj              0      88        0      
+    +--+---------------------+------+---------+---------+
+       Total:                322    288       0      
+                                                     
+    /opt/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib/rtsv7M3_T_le_eabi.lib
+       boot_cortex_m.c.obj   28     0         0      
+       args_main.c.obj       24     0         0      
+       exit.c.obj            4      0         0      
+       pre_init.c.obj        4      0         0      
+    +--+---------------------+------+---------+---------+
+       Total:                60     0         0      
+                                                     
+    /opt/ti/tirtos_cc13xx_cc26xx_2_21_01_08/products/cc13xxware_2_04_03_17272/driverlib/bin/ccs/driverlib.lib
+       setup_rom.obj         1472   0         0      
+       setup.obj             360    0         0      
+       chipinfo.obj          206    0         0      
+       osc.obj               140    0         0      
+       ddi.obj               44     0         0      
+       cpu.obj               30     0         0      
+    +--+---------------------+------+---------+---------+
+       Total:                2252   0         0      
+                                                     
+       Stack:                0      0         256    
+    +--+---------------------+------+---------+---------+
+       Grand Total:          2634   288       256    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                                        
+-------   ----                                                        
+00000b0b  C$$EXIT                                                     
+00000ad1  NOROM_CPUcpsid                                              
+00000add  NOROM_CPUcpsie                                              
+00000b01  NOROM_CPUdelay                                              
+00000825  NOROM_ChipInfo_GetChipFamily                                
+00000631  NOROM_ChipInfo_GetHwRevision                                
+0000089d  NOROM_DDI32RegWrite                                         
+000008c9  NOROM_OSCClockSourceGet                                     
+00000775  NOROM_OSCClockSourceSet                                     
+00000519  NOROM_SetupAfterColdResetWakeupFromShutDownCfg1             
+000001f9  NOROM_SetupAfterColdResetWakeupFromShutDownCfg2             
+000000c9  NOROM_SetupAfterColdResetWakeupFromShutDownCfg3             
+000009e1  NOROM_SetupGetTrimForAdcShModeEn                            
+000009f9  NOROM_SetupGetTrimForAdcShVbufEn                            
+000006a1  NOROM_SetupGetTrimForAmpcompCtrl                            
+00000a11  NOROM_SetupGetTrimForAmpcompTh1                             
+00000941  NOROM_SetupGetTrimForAmpcompTh2                             
+0000070d  NOROM_SetupGetTrimForAnabypassValue1                        
+00000a29  NOROM_SetupGetTrimForDblrLoopFilterResetVoltage             
+000008f5  NOROM_SetupGetTrimForRadcExtCfg                             
+00000a41  NOROM_SetupGetTrimForRcOscLfIBiasTrim                       
+0000095d  NOROM_SetupGetTrimForRcOscLfRtuneCtuneTrim                  
+00000921  NOROM_SetupGetTrimForXoscHfCtl                              
+00000aa1  NOROM_SetupGetTrimForXoscHfFastStart                        
+00000ab1  NOROM_SetupGetTrimForXoscHfIbiastherm                       
+00000a59  NOROM_SetupGetTrimForXoscLfRegulatorAndCmirrwrRatio         
+0000086d  NOROM_SetupSetAonRtcSubSecInc                               
+000007d5  NOROM_SetupSetCacheModeAccordingToCcfgSetting               
+000005bd  NOROM_SetupSetVddrLevel                                     
+00000471  NOROM_SetupTrimDevice                                       
+00000a89  NOROM_ThisCodeIsBuiltForCC13xxHwRev20AndLater_HaltIfViolated
+00000ac1  ResetISR                                                    
+20005000  __STACK_END                                                 
+00000100  __STACK_SIZE                                                
+20005000  __STACK_TOP                                                 
+ffffffff  __TI_pprof_out_hndl                                         
+ffffffff  __TI_prof_data_size                                         
+ffffffff  __TI_prof_data_start                                        
+00000000  __TI_static_base__                                          
+ffffffff  __binit__                                                   
+00000b14  __c_args__                                                  
+0001ffa8  __ccfg                                                      
+UNDEFED   __mpu_init                                                  
+20004f00  __stack                                                     
+20000000  __start___llvm_prf_cnts                                     
+20000000  __stop___llvm_prf_cnts                                      
+00000a71  _args_main                                                  
+00000995  _c_int00_noinit                                             
+00000b07  _system_pre_init                                            
+00000b0b  abort                                                       
+ffffffff  binit                                                       
+00000000  g_pfnVectors                                                
+000002e9  main                                                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                                        
+-------   ----                                                        
+00000000  __TI_static_base__                                          
+00000000  g_pfnVectors                                                
+000000c9  NOROM_SetupAfterColdResetWakeupFromShutDownCfg3             
+00000100  __STACK_SIZE                                                
+000001f9  NOROM_SetupAfterColdResetWakeupFromShutDownCfg2             
+000002e9  main                                                        
+00000471  NOROM_SetupTrimDevice                                       
+00000519  NOROM_SetupAfterColdResetWakeupFromShutDownCfg1             
+000005bd  NOROM_SetupSetVddrLevel                                     
+00000631  NOROM_ChipInfo_GetHwRevision                                
+000006a1  NOROM_SetupGetTrimForAmpcompCtrl                            
+0000070d  NOROM_SetupGetTrimForAnabypassValue1                        
+00000775  NOROM_OSCClockSourceSet                                     
+000007d5  NOROM_SetupSetCacheModeAccordingToCcfgSetting               
+00000825  NOROM_ChipInfo_GetChipFamily                                
+0000086d  NOROM_SetupSetAonRtcSubSecInc                               
+0000089d  NOROM_DDI32RegWrite                                         
+000008c9  NOROM_OSCClockSourceGet                                     
+000008f5  NOROM_SetupGetTrimForRadcExtCfg                             
+00000921  NOROM_SetupGetTrimForXoscHfCtl                              
+00000941  NOROM_SetupGetTrimForAmpcompTh2                             
+0000095d  NOROM_SetupGetTrimForRcOscLfRtuneCtuneTrim                  
+00000995  _c_int00_noinit                                             
+000009e1  NOROM_SetupGetTrimForAdcShModeEn                            
+000009f9  NOROM_SetupGetTrimForAdcShVbufEn                            
+00000a11  NOROM_SetupGetTrimForAmpcompTh1                             
+00000a29  NOROM_SetupGetTrimForDblrLoopFilterResetVoltage             
+00000a41  NOROM_SetupGetTrimForRcOscLfIBiasTrim                       
+00000a59  NOROM_SetupGetTrimForXoscLfRegulatorAndCmirrwrRatio         
+00000a71  _args_main                                                  
+00000a89  NOROM_ThisCodeIsBuiltForCC13xxHwRev20AndLater_HaltIfViolated
+00000aa1  NOROM_SetupGetTrimForXoscHfFastStart                        
+00000ab1  NOROM_SetupGetTrimForXoscHfIbiastherm                       
+00000ac1  ResetISR                                                    
+00000ad1  NOROM_CPUcpsid                                              
+00000add  NOROM_CPUcpsie                                              
+00000b01  NOROM_CPUdelay                                              
+00000b07  _system_pre_init                                            
+00000b0b  C$$EXIT                                                     
+00000b0b  abort                                                       
+00000b14  __c_args__                                                  
+0001ffa8  __ccfg                                                      
+20000000  __start___llvm_prf_cnts                                     
+20000000  __stop___llvm_prf_cnts                                      
+20004f00  __stack                                                     
+20005000  __STACK_END                                                 
+20005000  __STACK_TOP                                                 
+ffffffff  __TI_pprof_out_hndl                                         
+ffffffff  __TI_prof_data_size                                         
+ffffffff  __TI_prof_data_start                                        
+ffffffff  __binit__                                                   
+ffffffff  binit                                                       
+UNDEFED   __mpu_init                                                  
+
+[53 symbols]
