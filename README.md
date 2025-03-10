@@ -16,3 +16,6 @@
 
 ## Lab 4
 ### Minicom Temperature Monitor UART Communication
+
+## Lab 6
+### PICOS LED Monitor
