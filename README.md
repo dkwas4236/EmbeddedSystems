@@ -19,3 +19,6 @@
 
 ## Lab 6
 ### PICOS LED Monitor
+
+## Lab 7
+### P2P Wireless Communication Chat
